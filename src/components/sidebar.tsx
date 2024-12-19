@@ -45,7 +45,7 @@ function Sidebar() {
             <img src="./Group 37110.png" alt="" />
             <p>Co deAnt AI</p>
           </div>
-          <button onClick={() => set((x: boolean) => !x)} className="w-10 h-10">
+          <button onClick={() => set(!state)} className="w-10 h-10">
             <img src={!state ? "./bars.png" : "./close.png"} alt="" />
           </button>
         </div>

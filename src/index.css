@@ -2,12 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-.image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  background: url("./search.png")
-    no-repeat scroll 6px 11px;
-  padding-left: 30px;
 
-}
