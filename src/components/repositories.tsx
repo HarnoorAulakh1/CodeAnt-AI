@@ -1,4 +1,6 @@
 import "../index.css";
+import { useContext } from "react";
+import { menuContext } from "../contexts/menu";
 
 const data = [
   {
@@ -53,8 +55,9 @@ const data = [
 ];
 
 function Repositories() {
+    const {state}=useContext(menuContext);
   return (
-    <div className="bg-[#fafafa] w-full md:w-[82%] h-[100vh] overflow-scroll">
+    <div className={`bg-[#fafafa] w-full md:w-full h-[100vh] overflow-scroll ${state && "blur-sm"}`}>
       <div className="md:ml-[2%] mr-[2%] mt-[2%] rounded-lg flex flex-col gap-1">
         <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 pl-5">
           <div className=" flex flex-col gap-2 md:flex-row md:justify-between">

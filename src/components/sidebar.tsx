@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
 import "../index.css";
+import { menuContext } from "../contexts/menu";
+
 const data = [
   {
     img: "./home.png",
@@ -30,10 +32,12 @@ const data = [
 ];
 
 function Sidebar() {
-  const [state, set] = useState("5rem");
+  const { state, set } = useContext(menuContext);
   return (
     <div
-      className={`pl-2 pt-5 flex flex-col md:justify-between md:items-start overflow-hidden transition-all duration-200 ease-linear h-[${state}] md:h-[100vh] w-full md:w-[18%] `}
+      className={`pl-2 pt-5 z-[999] bg-white flex flex-col ${state && "border-b-[1px]"} border-gray-500 md:justify-between md:items-start overflow-hidden transition-all ease-linear duration-200 ${
+        state ? "h-[40rem]" : "h-[5rem]"
+      } md:h-[100vh] w-full md:w-[18%]`}
     >
       <div className="flex flex-col gap-4 md:gap-8 items-center mr-2 w-full md:hidden">
         <div className="flex flex-row justify-between w-full">
@@ -41,15 +45,8 @@ function Sidebar() {
             <img src="./Group 37110.png" alt="" />
             <p>Co deAnt AI</p>
           </div>
-          <button
-            onClick={() =>
-              set((x) => {
-                return x == "5rem" ? "30rem" : "5rem";
-              })
-            }
-            className="w-10 h-10"
-          >
-            <img src={state == "5rem" ? "./bars.png" : "./close.png"} alt="" />
+          <button onClick={() => set((x: boolean) => !x)} className="w-10 h-10">
+            <img src={!state ? "./bars.png" : "./close.png"} alt="" />
           </button>
         </div>
         <select className="w-[90%] mt-2 md:w-[12rem] text-xl border-[1px] border-gray-300 rounded-lg p-2">
