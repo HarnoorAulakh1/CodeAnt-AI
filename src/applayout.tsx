@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { menuContext } from "./contexts/menu";
 
 function AppLayout() {
-    const {state, set} = useContext(menuContext);
+    const {state} = useContext(menuContext);
   return (
     <div className="flex flex-col md:flex-row ">
         <Sidebar />

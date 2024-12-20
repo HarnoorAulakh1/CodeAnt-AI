@@ -43,7 +43,7 @@ function Sidebar() {
   console.log(state);
   return (
     <div
-      className={`pl-2 pt-5 z-[999] bg-white flex flex-col border-b-[1px]
+      className={`pl-2 pt-5 z-[999] bg-white flex flex-col border-b-[1px] fixed md:relative
        border-gray-500 md:justify-between md:items-start overflow-hidden transition-all ease-linear duration-200 ${
         state ? "h-[40rem]" : "h-[5rem]"
       } md:h-[100vh] w-full md:w-[18%]`}

@@ -1,6 +1,4 @@
 import "../index.css";
-import { useContext } from "react";
-import { menuContext } from "../contexts/menu";
 
 const data = [
   {
@@ -58,7 +56,7 @@ function Repositories() {
   return (
     <div className={`bg-[#fafafa] w-full md:w-full h-[100vh] overflow-scroll`}>
       <div className="md:ml-[2%] mr-[2%] mt-[2%] rounded-lg flex flex-col gap-1">
-        <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 pl-5 pb-5">
+        <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 md:pl-5 md:pb-5 pl-3 pb-3">
           <div className=" flex flex-col gap-2 md:flex-row md:justify-between">
             <div className="flex flex-col gap-2">
               <h1 className="text-2xl font-semibold">Repositories</h1>
@@ -111,14 +109,14 @@ function Tab({
   updates: string;
 }) {
   return (
-    <div className="flex flex-col gap-3 rounded-md bg-white p-5 transition-all ease-linear duration-50  hover:bg-[#f5f5f5]">
+    <div className="flex flex-col gap-3 rounded-md bg-white md:p-5 p-3 transition-all ease-linear duration-50  hover:bg-[#f5f5f5]">
       <div className="flex flex-row items-center gap-3">
         <p className="text-[1.2rem]">{name}</p>
         <p className="border-[1.2px] border-[#bcd7fd] text-[.8rem] rounded-2xl px-[10px] bg-[#eff8ff]  text-[#5c94e2]">
           {access}
         </p>
       </div>
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-row gap-5 md:gap-10">
         <div className="flex flex-row gap-2 items-center">
           <p className="text-gray-500 text-sm">{languages}</p>
           <div className="rounded-[5rem] bg-[#1470ef] w-2 h-2"></div>
