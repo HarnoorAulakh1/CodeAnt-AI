@@ -88,7 +88,7 @@ function Sidebar() {
         </div>
       </div>
       <div className="flex flex-col gap-2 md:gap-4 mt-2 md:mt-8 ">
-        <Tab img={<LuPhone />} text="report" onClick="/report" />
+        <Tab img={<LuPhone />} text="report" onClick="/app/report" />
         <Tab img={<MdOutlineLogout />} text="logout" onClick="/auth/saas" />
       </div>
     </div>
