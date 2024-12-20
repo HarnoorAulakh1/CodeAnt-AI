@@ -6,7 +6,6 @@ function AppLayout() {
     <div className="flex flex-col md:flex-row ">
         <Sidebar />
         <div className="absolute w-full md:relative md:w-[88%] md:top-0 top-[5rem]"><Outlet /></div>
-        
     </div>
   );
 }

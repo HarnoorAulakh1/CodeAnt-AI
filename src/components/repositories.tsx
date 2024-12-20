@@ -67,11 +67,11 @@ function Repositories() {
             </div>
             <div className="flex flex-row gap-4 text-md">
               <button className="flex flex-row gap-3 h-max rounded-lg p-2 border-[2px] border-gray-300 items-center justify-start">
-                <img src="./refresh.png" alt="" />
+                <img src="/refresh.png" alt="" />
                 Refresh All
               </button>
               <button className="flex flex-row gap-2 h-max rounded-lg p-2 bg-[#1470ef] text-white items-center justify-start">
-                <img src="./plus.png" alt="" />
+                <img src="/plus.png" alt="" />
                 Add Repository
               </button>
             </div>
@@ -112,7 +112,7 @@ function Tab({
   updates: string;
 }) {
   return (
-    <div className="flex flex-col gap-3 rounded-md bg-white p-5 hover:border-[2px] hover:border-grey-700">
+    <div className="flex flex-col gap-3 rounded-md bg-white p-5 transition-all ease-linear duration-50  hover:bg-[#f5f5f5]">
       <div className="flex flex-row items-center gap-3">
         <p className="text-[1.2rem]">{name}</p>
         <p className="border-[1.2px] border-[#bcd7fd] text-[.8rem] rounded-2xl px-[10px] bg-[#eff8ff]  text-[#5c94e2]">

@@ -3,18 +3,53 @@ import AppLayout from "./applayout";
 import Repositories from "./components/repositories";
 import { useState } from "react";
 import { menuContext } from "./contexts/menu";
+import { Auth, SAAS,Self } from "./components/auth";
+import UnderConstruction from "./components/under";
 
 function App() {
-
-  const [state,set]=useState(false);
+  const [state, set] = useState(false);
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/app",
       element: <AppLayout />,
       children: [
         {
           path: "repositories",
           element: <Repositories />,
+        },
+        {
+          path: "code-review",
+          element: <UnderConstruction/>,
+        },
+        {
+          path: "cloud-security",
+          element: <UnderConstruction/>,
+        },
+        {
+          path: "how-to-use",
+          element: <UnderConstruction/>,
+        },
+        {
+          path: "settings",
+          element: <UnderConstruction/>,
+        },
+        {
+          path: "report",
+          element: <UnderConstruction/>,
+        },
+      ],
+    },
+    {
+      path: "/auth",
+      element: <Auth />,
+      children: [
+        {
+          path: "saas",
+          element: <SAAS />,
+        },
+        {
+          path: "self-hosted",
+          element: <Self />,
         },
       ],
     },
@@ -22,9 +57,9 @@ function App() {
 
   return (
     <>
-    <menuContext.Provider value={{state,set}}>
-      <RouterProvider router={router}></RouterProvider>
-    </menuContext.Provider>
+      <menuContext.Provider value={{ state, set }}>
+        <RouterProvider router={router}></RouterProvider>
+      </menuContext.Provider>
     </>
   );
 }

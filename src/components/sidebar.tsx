@@ -1,33 +1,40 @@
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import "../index.css";
 import { menuContext } from "../contexts/menu";
+import { NavLink } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
+import { FaCode } from "react-icons/fa6";
+import { CiCloudOn } from "react-icons/ci";
+import { LuBookText } from "react-icons/lu";
+import { BsGear } from "react-icons/bs";
+import { LuPhone } from "react-icons/lu";
+import { MdOutlineLogout } from "react-icons/md";
 
 const data = [
   {
-    img: "./home.png",
+    img: <AiOutlineHome />,
     text: "Repositories",
     onClick: "./repositories",
   },
   {
-    img: "./code.png",
+    img: <FaCode />,
     text: "AI Code Review",
-    onClick: "./code-review",
+    onClick: "code-review",
   },
   {
-    img: "./cloud.png",
+    img: <CiCloudOn />,
     text: "Cloud Security",
-    onClick: "./cloud-security",
+    onClick: "cloud-security",
   },
   {
-    img: "./book.png",
+    img: <LuBookText />,
     text: "How to use",
-    onClick: "./how-to-use",
+    onClick: "how-to-use",
   },
   {
-    img: "./gear.png",
+    img: <BsGear />,
     text: "Setings",
-    onClick: "./settings",
+    onClick: "settings",
   },
 ];
 
@@ -35,18 +42,19 @@ function Sidebar() {
   const { state, set } = useContext(menuContext);
   return (
     <div
-      className={`pl-2 pt-5 z-[999] bg-white flex flex-col ${state && "border-b-[1px]"} border-gray-500 md:justify-between md:items-start overflow-hidden transition-all ease-linear duration-200 ${
+      className={`pl-2 pt-5 z-[999] bg-white flex flex-col border-b-[1px]
+       border-gray-500 md:justify-between md:items-start overflow-hidden transition-all ease-linear duration-200 ${
         state ? "h-[40rem]" : "h-[5rem]"
       } md:h-[100vh] w-full md:w-[18%]`}
     >
       <div className="flex flex-col gap-4 md:gap-8 items-center mr-2 w-full md:hidden">
         <div className="flex flex-row justify-between w-full">
           <div className="flex flex-row items-center justify-center font-[inter] text-3xl font-light gap-2">
-            <img src="./Group 37110.png" alt="" />
-            <p>Co deAnt AI</p>
+            <img src="/Group 37110.png" alt="" />
+            <p>CodeAnt AI</p>
           </div>
           <button onClick={() => set(!state)} className="w-10 h-10">
-            <img src={!state ? "./bars.png" : "./close.png"} alt="" />
+            <img src={!state ? "/bars.png" : "/close.png"} alt="" />
           </button>
         </div>
         <select className="w-[90%] mt-2 md:w-[12rem] text-xl border-[1px] border-gray-300 rounded-lg p-2">
@@ -63,7 +71,7 @@ function Sidebar() {
       </div>
       <div className="md:flex flex-col gap-8 justify-start mr-2 hidden">
         <div className="flex flex-row items-center justify-center font-[inter] text-3xl font-light gap-2">
-          <img src="./Group 37110.png" alt="" />
+          <img src="/Group 37110.png" alt="" />
           <p>CodeAnt AI</p>
         </div>
         <select className="w-[12rem] text-xl border-[1px] border-gray-300 rounded-lg p-2">
@@ -72,15 +80,15 @@ function Sidebar() {
           <option value="Grewal">Grewal</option>
           <option value="Randhawa">Randhawa</option>
         </select>
-        <div className="flex flex-col gap-4 mt-8">
+        <div className="flex flex-col gap-4">
           {data.map((item) => (
             <Tab img={item.img} text={item.text} onClick={item.onClick} />
           ))}
         </div>
       </div>
       <div className="flex flex-col gap-4 mt-8 ">
-        <Tab img="./report.png" text="report" onClick="" />
-        <Tab img="./logout.png" text="logout" onClick="" />
+        <Tab img={<LuPhone />} text="report" onClick="/report" />
+        <Tab img={<MdOutlineLogout />} text="logout" onClick="/auth/saas" />
       </div>
     </div>
   );
@@ -91,21 +99,29 @@ function Tab({
   text,
   onClick,
 }: {
-  img: string;
+  img: ReactElement;
   text: string;
   onClick: string;
 }) {
-  const navigate = useNavigate();
+  const { state, set } = useContext(menuContext);
   return (
-    <div
-      onClick={() => navigate(onClick)}
-      className={`border-0 flex flex-row items-center justify-start pl-5 pr-8 ${
-        text === "Repositories" ? "bg-[#1470ef] text-white" : ""
-      } gap-4 p-2 rounded-lg cursor-pointer`}
+    <NavLink
+      onClick={() => set(!state)}
+      to={onClick}
+      className={({ isActive }: { isActive: boolean }) =>
+        isActive
+          ? `border-0 flex flex-row items-center justify-start pl-5 pr-8
+        bg-[#1470ef] text-white
+       gap-4 p-2 rounded-lg cursor-pointer`
+          : `border-0 flex flex-row items-center justify-start pl-5 pr-8
+        bg-white text-black
+       gap-4 p-2 rounded-lg cursor-pointer`
+      }
     >
-      <img className="" src={img} alt="" />
+      <div className="text-xl">{img}</div>
+
       <p>{text}</p>
-    </div>
+    </NavLink>
   );
 }
 
