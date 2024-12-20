@@ -54,7 +54,7 @@ const data = [
 
 function Repositories() {
   return (
-    <div className={`bg-[#fafafa] w-full md:w-full h-[100vh]`}>
+    <div className={`bg-[#fafafa] w-full md:w-full h-[100vh] md:overflow-scroll`}>
       <div className="md:ml-[2%] mr-[2%] mt-[2%] rounded-lg flex flex-col gap-1">
         <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 md:pl-5 md:pb-5 pl-3 pb-3">
           <div className=" flex flex-col gap-2 md:flex-row md:justify-between">
