@@ -3,12 +3,30 @@ import AppLayout from "./applayout";
 import Repositories from "./components/repositories";
 import { useState } from "react";
 import { menuContext } from "./contexts/menu";
-import { Auth, SAAS,Self } from "./components/auth";
+import { Auth, SAAS, Self } from "./components/auth";
 import UnderConstruction from "./components/under";
+import Sidebar from "./components/sidebar";
 
 function App() {
   const [state, set] = useState(false);
   const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <div className="flex flex-col md:flex-row ">
+            <Sidebar />
+            <div
+              className={`absolute w-full md:relative md:w-[88%] md:top-0 top-[5rem] ${
+                state && "md:blur-none blur-sm"
+              }`}
+            >
+              <Repositories />
+            </div>
+          </div>
+        </>
+      ),
+    },
     {
       path: "/app",
       element: <AppLayout />,
@@ -19,23 +37,23 @@ function App() {
         },
         {
           path: "code-review",
-          element: <UnderConstruction/>,
+          element: <UnderConstruction />,
         },
         {
           path: "cloud-security",
-          element: <UnderConstruction/>,
+          element: <UnderConstruction />,
         },
         {
           path: "how-to-use",
-          element: <UnderConstruction/>,
+          element: <UnderConstruction />,
         },
         {
           path: "settings",
-          element: <UnderConstruction/>,
+          element: <UnderConstruction />,
         },
         {
           path: "report",
-          element: <UnderConstruction/>,
+          element: <UnderConstruction />,
         },
       ],
     },

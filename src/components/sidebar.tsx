@@ -14,32 +14,33 @@ const data = [
   {
     img: <AiOutlineHome />,
     text: "Repositories",
-    onClick: "./repositories",
+    onClick: "/app/repositories",
   },
   {
     img: <FaCode />,
     text: "AI Code Review",
-    onClick: "code-review",
+    onClick: "/app/code-review",
   },
   {
     img: <CiCloudOn />,
     text: "Cloud Security",
-    onClick: "cloud-security",
+    onClick: "/app/cloud-security",
   },
   {
     img: <LuBookText />,
     text: "How to use",
-    onClick: "how-to-use",
+    onClick: "/app/how-to-use",
   },
   {
     img: <BsGear />,
     text: "Setings",
-    onClick: "settings",
+    onClick: "/app/settings",
   },
 ];
 
 function Sidebar() {
   const { state, set } = useContext(menuContext);
+  console.log(state);
   return (
     <div
       className={`pl-2 pt-5 z-[999] bg-white flex flex-col border-b-[1px]

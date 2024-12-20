@@ -55,11 +55,10 @@ const data = [
 ];
 
 function Repositories() {
-    const {state}=useContext(menuContext);
   return (
-    <div className={`bg-[#fafafa] w-full md:w-full h-[100vh] overflow-scroll ${state && "blur-sm"}`}>
+    <div className={`bg-[#fafafa] w-full md:w-full h-[100vh] overflow-scroll`}>
       <div className="md:ml-[2%] mr-[2%] mt-[2%] rounded-lg flex flex-col gap-1">
-        <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 pl-5">
+        <div className="bg-white pt-5 rounded-md flex flex-col w-full  gap-4 pl-5 pb-5">
           <div className=" flex flex-col gap-2 md:flex-row md:justify-between">
             <div className="flex flex-col gap-2">
               <h1 className="text-2xl font-semibold">Repositories</h1>
@@ -125,7 +124,7 @@ function Tab({
           <div className="rounded-[5rem] bg-[#1470ef] w-2 h-2"></div>
         </div>
         <div className="flex gap-2 flex-row items-center">
-          <img src="./database.png" alt="" />
+          <img src="/database.png" alt="" />
           <p>{size}</p>
         </div>
         <p>Updated {updates} days ago</p>
